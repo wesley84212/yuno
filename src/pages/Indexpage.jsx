@@ -7,6 +7,5 @@ export default function Indexpage() {
             <Header></Header>
             <NavBAr></NavBAr>
 
-
     </>)
 }

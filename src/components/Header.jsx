@@ -8,7 +8,7 @@ export default function Header() {
 
             </div>
             <div className="header_btn">
-                <NavLink className="mr-3" to="">註冊會員</NavLink>
+                <button className="btn btn-info mr-3"><NavLink className="sign-on" to="">註冊會員</NavLink></button>
                 <NavLink to="">登入會員</NavLink>
 
             </div>
