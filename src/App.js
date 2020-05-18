@@ -3,12 +3,22 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Indexpage from './pages/Indexpage'
 import './style/index.scss'
+import Header from './components/Header';
+import NavBar from './components/NavBar';
+import Registered from './pages/Registered';
 
 function App() {
-  return (
+  return (<>
     <div class="container">
       <Router>
+      <Header></Header>
+      <NavBar></NavBar>
         <Switch>
+        <Route path="/registered">
+          <Registered></Registered>
+          </Route>
+          <Route path="/connect">
+          </Route>
           <Route path="/shop">
           </Route>
           <Route path="/about">
@@ -21,7 +31,7 @@ function App() {
 
     </div>
 
-  );
+  </>);
 }
 
 export default App;

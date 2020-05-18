@@ -1,13 +1,9 @@
-import React from 'react'
+import React from 'react';
 
+function Aboutpage() {
+  return <>
 
- function Aboutpage(){
-
-
-
-    return(<>
-
-    </>)
-
- }
- export default Aboutpage
+  
+  </>;
+}
+export default Aboutpage;
