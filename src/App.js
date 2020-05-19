@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
-import Indexpage from './pages/Indexpage'
 import './style/index.scss'
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Registered from './pages/Registered';
+import CarouselComponents from './components/CarouselComponents';
+import Aboutpage from './pages/AboutArea';
 
 function App() {
   return (<>
@@ -14,6 +15,9 @@ function App() {
       <Header></Header>
       <NavBar></NavBar>
         <Switch>
+          <Route path="/ex-link">
+
+          </Route>
         <Route path="/registered">
           <Registered></Registered>
           </Route>
@@ -22,9 +26,10 @@ function App() {
           <Route path="/shop">
           </Route>
           <Route path="/about">
+            <Aboutpage></Aboutpage>
           </Route>
           <Route path="/">
-            <Indexpage></Indexpage>
+            <CarouselComponents></CarouselComponents>
           </Route>
         </Switch>
       </Router>
