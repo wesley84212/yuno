@@ -1,0 +1,20 @@
+{
+    "sum": 111,
+    "count": 1,
+    "purchase": [
+        {
+            "id": 2,
+            "quantity": 1,
+            "purchaseDate": "2020-10-12",
+            "cost": 111,
+            "createdAt": "2020-10-12T01:06:57.143Z",
+            "UpdatedAt": "2020-10-12T01:06:57.143Z",
+            "product": {
+                "id": 3,
+                "name": "[鞋]涼鞋-灰-39碼-高根",
+                "createdAt": "2020-10-12T01:06:57.120Z",
+                "UpdatedAt": "2020-10-12T01:06:57.120Z"
+            }
+        }
+    ]
+}

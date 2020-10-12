@@ -1,19 +1,62 @@
 *{
     box-sizing: border-box;
+    font-family: "微軟正黑體";
 }
 
 a {
-    text-decoration: none;
+    text-decoration-style: none;
 }
 
 
 .nav-bar{
     color:white;
     text-decoration: none;
+    margin: 0 auto;
+    width: 80%;
+
 }
 
 .reg-form{
     margin: 0 auto;
+}
+
+.g-line{
+    width: 80%;
+    height: 3px;
+    background-color: gray;
+    margin: 0 auto;
+}
+
+.m-0auto{
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+.nav-btn{
+
+    color: lightseagreen;
+}
+
+.nav-btn:hover{
+    background-color: lightseagreen;
+    color:white;
+}
+
+.products-table{
+    border:1px solid lightgray;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+.w-10p{
+    width: 10%;
+}
+.w-15p{
+    width: 15%;
 }
 
 
