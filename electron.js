@@ -9,7 +9,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
     mainWindow.loadURL(
         isDev
-            ? "http://localhost:3001"
+            ? "http://localhost:3000"
             : `file://${path.join(__dirname, "./build/index.html")}`
     );
     mainWindow.on("closed", () => (mainWindow = null));
