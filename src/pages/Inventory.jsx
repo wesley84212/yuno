@@ -1,42 +1,28 @@
 import React, { useState, useEffect } from 'react'
-
+import { GetSaleListFromServer, GetDataFromServer } from '../action/index';
 
 function Inventory() {
 
     const [productList, setProductList] = useState({ purchase: [] })
-
-    async function getDataFromServer() {
-        const request = new Request(
-            'http://localhost:3000/purchase',
-            {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'include',
-                headers: new Headers({
-                    Accept: 'application/json',
-                    'Content-Type': 'appliaction/json',
-                }),
-            }
-        )
-
-        const response = await fetch(request)
-        const data = await response.json()
-        setProductList(data)
-    }
+    const [saleList, setSaleList] = useState({ sales: [] })
 
     useEffect(() => {
-        getDataFromServer()
+        const fetchData = async () => {
+            setSaleList(await GetSaleListFromServer())
+            setProductList(await GetDataFromServer())
+        }
+        fetchData();
     }, [])
+
     let incomes = 0;
     let costs = 0;
     let saleCharges = 0;
     let saleAmounts = 0;
+    let sales = saleList;
     let products = (<>
-        {productList && productList.purchase.map((value, index) => {
+        {productList.purchase && productList.purchase.map((value, index) => {
             incomes += value.income;
             costs += value.cost;
-            saleCharges += value.saleCharge;
-            saleAmounts += value.saleAmount;
             const saleDate = value.saleDate === "0000-00-00" ? "" : value.saleDate;
             return (
                 <tr>
