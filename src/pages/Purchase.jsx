@@ -20,7 +20,15 @@ function Purchase() {
         status: 1
       }
       const result = await CreatePurchase(input);
-      alert(result);
+      toast.success(`${result.name} 新增成功`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     } catch (err) {
       toast.error(err.message, {
         position: "top-right",
@@ -31,9 +39,7 @@ function Purchase() {
         draggable: true,
         progress: undefined,
       })
-      console.log(err)
     }
-
   }
   return <>
     <div className="m-0auto">

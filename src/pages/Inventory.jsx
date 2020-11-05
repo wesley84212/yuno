@@ -13,29 +13,48 @@ function Inventory() {
         }
         fetchData();
     }, [])
-
+    // const compareProducts = async (productList, saleList) => {
+    //     let incomes = 0;
+    //     let costs = 0;
+    //     let saleCharges = 0;
+    //     let saleAmounts = 0;
+    //     console.log(productList);
+    //     console.log(saleList);
+    //     // setProducts()
+    // }
     let incomes = 0;
     let costs = 0;
     let saleCharges = 0;
     let saleAmounts = 0;
-    let sales = saleList;
-    let products = (<>
-        {productList.purchase && productList.purchase.map((value, index) => {
-            incomes += value.income;
-            costs += value.cost;
-            const saleDate = value.saleDate === "0000-00-00" ? "" : value.saleDate;
-            return (
-                <tr>
-                    <td className="products-table w-10p">{value.id}</td>
-                    <td className="products-table">{value.product.name}</td>
-                    <td className="products-table w-10p">{value.cost}</td>
-                    <td className="products-table w-15p">{value.purchaseDate}</td>
-                    <td className="products-table w-15p">{saleDate}</td>
-                </tr>
-            )
-        })}
-    </>)
 
+    const products = (<>
+        {
+            productList.purchase && productList.purchase.map((value, index) => {
+                let targetSale = []
+                let saleDate = []
+                if (saleList.sales) {
+                    targetSale = saleList.sales.filter((sales) => {
+                        return sales.product.id === value.product.id
+                    }, [])
+                }
+                if (targetSale.length > 0) {
+                    saleDate = targetSale[0].saleDate === "0000-00-00" ? "" : targetSale[0].saleDate;
+                    saleCharges += targetSale[0].saleCharge
+                    saleAmounts += targetSale[0].saleAmount
+                }
+                incomes += value.income
+                costs += value.cost
+                return (
+                    <tr>
+                        <td className="products-table w-10p">{value.product.id}</td>
+                        <td className="products-table">{value.product.name}</td>
+                        <td className="products-table w-10p">{value.cost}</td>
+                        <td className="products-table w-15p">{value.purchaseDate}</td>
+                        <td className="products-table w-15p">{saleDate}</td>
+                    </tr>
+                )
+            })}
+    </>)
 
     return (<>
         <div className="m-0auto">
@@ -54,12 +73,7 @@ function Inventory() {
                 </tr>
                 {products}
             </table>
-
-
-
         </div>
-
-
     </>)
 
 }
