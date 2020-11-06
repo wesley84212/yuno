@@ -44,7 +44,6 @@ function Purchase() {
   return <>
     <div className="m-0auto">
       <h3 className="mt-2 mb-2">進貨填寫</h3>
-
       <label>商品名稱:</label>
       <input type="text" className="form-control" onChange={element => setProductName(element.target.value)} />
       <label>商品成本:</label>

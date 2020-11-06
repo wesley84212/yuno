@@ -9,7 +9,7 @@ import Inventory from './pages/Inventory';
 
 function App() {
   return (<>
-    <div class="container">
+    <div className="container">
       <Router>
         <Header></Header>
         <NavBar></NavBar>

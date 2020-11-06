@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { GetSaleListFromServer, GetDataFromServer } from '../action/index';
+import Dialog from '../components/ProductDialog';
 
 function Inventory() {
 
@@ -13,15 +14,7 @@ function Inventory() {
         }
         fetchData();
     }, [])
-    // const compareProducts = async (productList, saleList) => {
-    //     let incomes = 0;
-    //     let costs = 0;
-    //     let saleCharges = 0;
-    //     let saleAmounts = 0;
-    //     console.log(productList);
-    //     console.log(saleList);
-    //     // setProducts()
-    // }
+
     let incomes = 0;
     let costs = 0;
     let saleCharges = 0;
@@ -45,13 +38,16 @@ function Inventory() {
                 incomes += value.income
                 costs += value.cost
                 return (
-                    <tr>
-                        <td className="products-table w-10p">{value.product.id}</td>
-                        <td className="products-table">{value.product.name}</td>
-                        <td className="products-table w-10p">{value.cost}</td>
-                        <td className="products-table w-15p">{value.purchaseDate}</td>
-                        <td className="products-table w-15p">{saleDate}</td>
-                    </tr>
+                    <tbody key={value.product.id}>
+                        <tr>
+                            <td className="products-table w-10p">{value.product.id}</td>
+                            <td className="products-table">{value.product.name}</td>
+                            <td className="products-table w-10p">{value.cost}</td>
+                            <td className="products-table w-15p">{value.purchaseDate}</td>
+                            <td className="products-table w-15p">{saleDate}</td>
+                            <Dialog productId={value.product.id} productName={value.product.name} productCost={value.cost} purchaseDate={value.purchaseDate} />
+                        </tr>
+                    </tbody>
                 )
             })}
     </>)
@@ -64,13 +60,15 @@ function Inventory() {
             <span>總交易費用{saleCharges}</span>/
             <span>總進貨成本{costs}</span>
             <table>
-                <tr>
-                    <th className="products-table w-10p">商品編號</th>
-                    <th className="products-table">商品名稱</th>
-                    <th className="products-table w-10p">商品成本</th>
-                    <th className="products-table w-15p">進貨日期</th>
-                    <th className="products-table w-15p">售出日期</th>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th className="products-table w-10p">商品編號</th>
+                        <th className="products-table">商品名稱</th>
+                        <th className="products-table w-10p">商品成本</th>
+                        <th className="products-table w-15p">進貨日期</th>
+                        <th className="products-table w-15p">售出日期</th>
+                    </tr>
+                </tbody>
                 {products}
             </table>
         </div>
